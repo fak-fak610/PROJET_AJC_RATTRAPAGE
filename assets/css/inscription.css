@@ -1,0 +1,69 @@
+
+main {
+  padding: 40px 0;
+  min-height: 80vh;
+  background: #f8f9fa;
+}
+
+/* Formulaire élégant et centré */
+.registration-form {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px 24px 28px;
+  box-shadow: 0 4px 24px rgba(35, 46, 89, 0.12);
+  margin: 0 auto;
+}
+
+/* Labels en gras et couleur principale */
+.form-label {
+  font-weight: 600;
+  color: #232e59;
+}
+
+/* CHAMPS ARRONDIS UNIFORMES */
+.registration-form .form-control {
+  border-radius: 25px !important; /* Arrondi partout, pour tous les champs */
+  margin-bottom: 12px;
+  border: 1.5px solid #cfd8dc;
+  background: #f5f8fa;
+  transition: border-color 0.2s;
+  box-shadow: none;
+}
+
+
+.registration-form .form-control:focus {
+  border-color: #232e59;
+  box-shadow: 0 0 0 2px rgba(35, 46, 89, 0.1);
+}
+
+
+.btn-primary {
+  background-color: #232e59;
+  border-color: #232e59;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 10px 0;
+  border-radius: 25px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(35, 46, 89, 0.08);
+  transition: background 0.2s, border 0.2s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1a2142;
+  border-color: #1a2142;
+}
+
+
+.lead {
+  color: #555;
+  font-size: 1.08em;
+}
+
+
+@media (max-width: 500px) {
+  .registration-form {
+    padding: 18px 8px 14px 8px;
+  }
+}

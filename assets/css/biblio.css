@@ -1,0 +1,132 @@
+/* biblio.css */
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.resources-menu a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  padding: 5px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+footer {
+  background: #222;
+  color: white;
+  padding: 20px 0;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover {
+  color: #ccc;
+}
+
+.paragraphe-centre {
+  text-align: center;
+}
+
+.Gael-text-middle {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.Gael-text-middle p {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.images img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .images {
+    grid-template-columns: 1fr;
+  }
+  .images img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.image-text {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.sidebar-help {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+}
+
+.help-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.help-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .sidebar-help {
+    right: 10px;
+    bottom: 10px;
+  }
+  .help-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
