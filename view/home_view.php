@@ -2,18 +2,18 @@
 
 <main class="container py-5">
 
-    <section class="mb-5 text-center">
+    <section class="mb-5 text-center" aria-label="Section d'accueil et de bienvenue">
         <h1>Bienvenue sur le Centre MOOC</h1>
         <p>Découvrez nos MOOC et notre bibliothèque en ligne.</p>
         <a href="index.php?page=mooc" class="btn btn-primary">Commencer à apprendre</a>
     </section>
 
-    <section class="row text-center justify-content-center mb-5">
+    <section class="row text-center justify-content-center mb-5" aria-label="Navigation principale vers les sections MOOC et Bibliothèque">
         <div class="col-md-6 mb-3">
             <div class="card p-4 h-100 d-flex flex-column justify-content-between">
                 <div>
-                    <i class="fas fa-laptop-code fa-3x mb-3"></i>
-                    <h2>MOOC</h2>
+                    <i class="fas fa-laptop-code fa-3x mb-3" aria-hidden="true"></i>
+                    <h2 id="titre-section-mooc">MOOC</h2>
                     <p>Accédez à nos cours en ligne ouverts et massifs.</p>
                 </div>
                 <a href="index.php?page=mooc" class="btn btn-outline-primary mt-2">Voir les MOOC</a>
@@ -22,8 +22,8 @@
         <div class="col-md-6 mb-3">
             <div class="card p-4 h-100 d-flex flex-column justify-content-between">
                 <div>
-                    <i class="fas fa-book fa-3x mb-3"></i>
-                    <h2>Bibliothèque</h2>
+                    <i class="fas fa-book fa-3x mb-3" aria-hidden="true"></i>
+                    <h2 id="titre-section-bibliotheque">Bibliothèque</h2>
                     <p>Explorez notre vaste collection de ressources pédagogiques.</p>
                 </div>
                 <a href="index.php?page=bibliotheque" class="btn btn-outline-primary mt-2">Voir la bibliothèque</a>
@@ -31,9 +31,9 @@
         </div>
     </section>
 
-    <section class="mb-5">
+    <section class="mb-5" aria-labelledby="titre-cours-une" aria-label="Section présentant les cours en vedette">
         <div class="text-center mb-4">
-            <h2 class="mb-2">Cours à la Une</h2>
+            <h2 class="mb-2" id="titre-cours-une">Cours à la Une</h2>
             <p class="mb-3 text-muted">Des cours en ligne pour découvrir, apprendre, progresser et réussir</p>
             <a href="index.php?page=mooc" class="btn btn-primary">Plus de cours</a>
         </div>
@@ -47,7 +47,7 @@
                         <div class="card h-100 shadow-sm">
                             <img src="<?php echo filter_var($cours['image'], FILTER_VALIDATE_URL) ? htmlspecialchars($cours['image']) : '../' . htmlspecialchars($cours['image']); ?>" class="card-img-top" alt="Illustration du cours : <?= htmlspecialchars($cours['titre']) ?>" style="max-height:180px; object-fit:cover;">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title"><?= htmlspecialchars($cours['titre']) ?></h5>
+                            <h3 class="card-title"><?= htmlspecialchars($cours['titre']) ?></h3>
                                 <p class="card-text"><?= htmlspecialchars($cours['description']) ?></p>
                                 <a href="../details/mooc_detail.php?id=<?= $cours['id'] ?>" class="btn btn-primary mt-auto">Voir le cours</a>
                             </div>
@@ -58,8 +58,8 @@
         </div>
     </section>
 
-    <section class="mb-5">
-        <h2 class="mb-4 text-center">Actualités locales</h2>
+    <section class="mb-5" aria-labelledby="titre-actus-locales" aria-label="Section des actualités locales du centre">
+        <h2 class="mb-4 text-center" id="titre-actus-locales">Actualités locales</h2>
         <div class="row justify-content-center">
             <?php if (empty($actus)): ?>
                 <p class="text-center">Aucune actualité disponible.</p>
@@ -68,7 +68,7 @@
                     <div class="col-md-4 mb-3">
                         <div class="card h-100 border-0 shadow-sm">
                             <div class="card-body">
-                                <h5><?= htmlspecialchars($actu['titre']) ?></h5>
+                                <h3><?= htmlspecialchars($actu['titre']) ?></h3>
                                 <p class="text-muted small mb-2"><?= date('d/m/Y', strtotime($actu['date_evt'])) ?></p>
                                 <p><?= htmlspecialchars($actu['texte']) ?></p>
                             </div>
@@ -80,8 +80,8 @@
     </section>
 
     <!-- Section Actualités éducatives (NewsAPI) - Marche maintenant avec ta clé valide -->
-    <section class="mb-5">
-        <h2 class="mb-4 text-center">Actualités éducatives</h2>
+    <section class="mb-5" aria-labelledby="titre-actus-educatives" aria-label="Section des actualités éducatives issues de sources externes">
+        <h2 class="mb-4 text-center" id="titre-actus-educatives">Actualités éducatives</h2>
         <div class="row justify-content-center">
             <?php if (empty($news)): ?>
                 <p class="text-center">Aucune actualité disponible pour le moment.</p>
@@ -93,7 +93,7 @@
                                 <img src="<?= htmlspecialchars($article['urlToImage']) ?>" class="card-img-top" alt="Image illustrant l'actualité éducative : <?= htmlspecialchars($article['title']) ?>" style="max-height:180px; object-fit:cover;">
                             <?php endif; ?>
                             <div class="card-body d-flex flex-column">
-                                <h5><?= htmlspecialchars($article['title']) ?></h5>
+                                <h3><?= htmlspecialchars($article['title']) ?></h3>
                                 <p class="text-muted small mb-2"><?= date('d/m/Y H:i', strtotime($article['publishedAt'])) ?></p>
                                 <p><?= htmlspecialchars($article['description'] ?? '') ?></p>
                                 <?php if (!empty($article['url'])): ?>
@@ -107,9 +107,9 @@
         </div>
     </section>
 
-    <section class="mb-5">
-        <h2 class="mb-4 text-center">
-            <i class="fas fa-headphones"></i> Dernières émissions France Culture
+    <section class="mb-5" aria-labelledby="titre-emissions-france-culture" aria-label="Section des dernières émissions radio de France Culture">
+        <h2 class="mb-4 text-center" id="titre-emissions-france-culture">
+            <i class="fas fa-headphones" aria-hidden="true"></i> Dernières émissions France Culture
         </h2>
         <div class="row justify-content-center">
             <?php if (empty($radioShows)): ?>
@@ -122,7 +122,7 @@
                     <div class="col-md-4 mb-3">
                         <div class="card h-100 border-0 shadow-sm">
                             <div class="card-body d-flex flex-column">
-                                <h5><?= htmlspecialchars($diffusion['title']) ?></h5>
+                                <h3><?= htmlspecialchars($diffusion['title']) ?></h3>
                                 <p class="text-muted small mb-2"><?= htmlspecialchars($diffusion['standFirst'] ?? 'Émission éducative') ?></p>
                                 <?php if ($podcast): ?>
                                     <p class="card-text"><?= htmlspecialchars($podcast['title']) ?></p>

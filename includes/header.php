@@ -40,21 +40,21 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 <body>
 
-<header class="bg-dark py-2 mb-0 border-0 shadow-none">
+<header class="bg-dark py-2 mb-0 border-0 shadow-none" role="banner" aria-label="En-tête du site">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
             <a href="index.php?page=home" class="d-flex align-items-center me-4">
                 <img src="../assets/images/logo ajc.png" alt="Logo Centre AJC" width="100">
             </a>
 
-            <nav class="flex-grow-1">
+            <nav class="flex-grow-1" aria-label="Navigation principale">
                 <ul class="nav justify-content-center mb-0">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=home"><i class="fa-solid fa-house"></i> Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=mooc"><i class="fa-solid fa-headphones"></i> MOOC</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=bibliotheque"><i class="fa-solid fa-book"></i> Bibliothèque</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=home"><i class="fa-solid fa-house" aria-hidden="true"></i> <span class="visually-hidden">Accueil</span> Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=mooc"><i class="fa-solid fa-headphones" aria-hidden="true"></i> <span class="visually-hidden">MOOC</span> MOOC</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php?page=bibliotheque"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="visually-hidden">Bibliothèque</span> Bibliothèque</a></li>
 
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <li class="nav-item"><a class="nav-link text-white" href="index.php?page=mes_favoris"><i class="fas fa-heart"></i> Mes favoris</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.php?page=mes_favoris"><i class="fas fa-heart" aria-hidden="true"></i> <span class="visually-hidden">Mes favoris</span> Mes favoris</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>
@@ -62,20 +62,20 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="ms-auto d-flex gap-2">
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-                        <a href="index.php?page=admin_dashboard" class="btn btn-danger">👑 ADMIN</a>
+                        <a href="index.php?page=admin_dashboard" class="btn btn-danger" aria-label="Panneau d'administration">👑 ADMIN</a>
                     <?php endif; ?>
                     <a href="index.php?page=profil" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-user"></i> Profil
+                        <i class="fas fa-user" aria-hidden="true"></i> Profil
                     </a>
                     <a href="index.php?page=deconnexion" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Déconnexion
                     </a>
                 <?php else: ?>
                     <a href="index.php?page=connexion" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-sign-in-alt"></i> Connexion
+                        <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Connexion
                     </a>
                     <a href="index.php?page=inscription" class="btn btn-primary btn-sm">
-                        <i class="fas fa-user-plus"></i> Inscription
+                        <i class="fas fa-user-plus" aria-hidden="true"></i> Inscription
                     </a>
                 <?php endif; ?>
             </div>
@@ -84,11 +84,12 @@ if (session_status() === PHP_SESSION_NONE) {
         <?php if (!in_array($current_page, ['connexion.php', 'inscription.php', 'mot_de_passe_oublie.php'])): ?>
             <div class="row mt-3 justify-content-center">
                 <div class="col-md-6">
-                    <form method="get" action="index.php" class="input-group">
+                    <form method="get" action="index.php" class="input-group" aria-label="Formulaire de recherche">
                         <input type="hidden" name="page" value="mooc">
-                        <input type="text" name="q" class="form-control py-2" placeholder="Rechercher un cours..." value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="fas fa-search"></i>
+                        <label for="search-input" class="visually-hidden">Rechercher un cours</label>
+                        <input type="text" id="search-input" name="q" class="form-control py-2" placeholder="Rechercher un cours..." value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>">
+                        <button class="btn btn-outline-light" type="submit" aria-label="Lancer la recherche">
+                            <i class="fas fa-search" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div>

@@ -1,0 +1,23 @@
+# Ignored files
+# TODO lists as requested
+TODO.md
+TODO_IMPROVEMENTS.md
+
+# Dependencies
+node_modules/
+
+# Maps and builds
+*.css.map
+*.map
+*.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+

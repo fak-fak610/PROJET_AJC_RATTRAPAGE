@@ -1,0 +1,14 @@
+{
+  "name": "projet2-web",
+  "version": "1.0.0",
+  "description": "Projet web avec SCSS/Sass",
+  "scripts": {
+    "sass": "sass assets/scss/style.scss assets/css/style.css",
+    "sass:admin": "sass assets/scss/admin.scss assets/css/admin.css",
+    "sass:watch": "sass --watch assets/scss:assets/css",
+    "build:css": "npm run sass && npm run sass:admin"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}
